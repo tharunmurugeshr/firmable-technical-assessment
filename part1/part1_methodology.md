@@ -33,7 +33,7 @@ The brief contained several points where rules conflicted or were under-specifie
 | **#** | **Conflict / Ambiguity**                                                                                                                          | **Decision Made**                                                                                   | **Reasoning**                                                                                                                                                                                               |
 | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1     | **"Under 20 staff"** - does this mean exclude <20 (keep 20+) or exclude ≤20 (keep 21+)? 6 companies in the filtered set have exactly 20 employees | Kept 20 and above                                                                                   | "Under 20" means 19 and below qualify, so 20 and above are kept                                                                                                                                             |
-| 2     | **"Mobile is critical" vs "give us email over mobile if only one"** - these two statements appear to contradict each other                        | Include mobile OR email, exclude landline only and neither                                          | Mobile is critical for calling, but email is preferred if only one exists. Both are valid contact methods - neither is excluded. Priority column added: Gold (1,545) → Email Only (655) → Mobile Only (268) |
+| 2     | **"Mobile is critical" vs "give us email over mobile if only one"** - these two statements appear to contradict each other                        | Include mobile OR email, exclude landline only and neither                                          | Mobile is critical for calling, but email is preferred if only one exists. Both are valid contact methods - neither is excluded. Priority column added: Gold (1,592) → Email Only (625) → Mobile Only (251) |
 | 3     | **"Facilities or Procurement"** - brief groups these as one group but they are two different departments                                          | Treated as two separate groups - Finance, Operations, Facilities, Procurement = 4 groups            | When all 4 groups exist in a company, Facilities is dropped (lowest priority) as it is least directly tied to energy spend decisions. Max 3 contacts per company maintained                                 |
 | 4     | **"Mid-market Australian businesses"** - brief never defines what revenue range this means                                                        | Used \$10M+ across 5 revenue bands (\$10M-\$25M, \$25M-\$50M, \$50M-\$100M, \$100M-\$250M, \$250M+) | Majority of Australian sources (ATO, KPMG, BDO) define mid-market from \$10M. Grant Thornton uses \$50M but is the outlier. Started at \$100M+ and expanded down to \$10M+ iteratively to hit contact quota |
 | 5     | **"Companies that have grown recently, like in the last 2 years"** - brief mentions growth but gives no instruction on how to use it              | Flagged for sorting, not filtering                                                                  | 50 companies within the filtered set of 956 were founded 2022 or later. Treated as a sort/prioritization signal rather than a hard filter to avoid reducing the contact pool                                |
@@ -91,7 +91,7 @@ The brief contained several points where rules conflicted or were under-specifie
 - COO and Chief Operating Officer - both classified as C-Level Operations. Treated as identical roles with different naming conventions
 - Facilities Coordinator (24 contacts) - appears in Operations group because the role title matched the Operations keyword operations coordinator. Could arguably belong to Facilities - flagged as a potential misclassification
 - Site Manager and Plant Manager - classified as Operations as they manage physical operational sites directly relevant to energy spend
-- 153 Operations contacts had seniority inferred from role title
+- 151 Operations contacts had seniority inferred from role title
 
 **FACILITIES GROUP - 228 contacts**
 
@@ -129,17 +129,17 @@ The brief contained several points where rules conflicted or were under-specifie
 - No C-Level in Procurement - highest seniority available is Head
 - Strategic Buyer - classified as Senior via inferred logic (strategic keyword). Reasonable given the strategic nature of the role. All 90 confirmed as Senior
 - Buyer - classified as Mid (78). Could be argued as Junior in some organizations but Mid is a safe assumption
-- 81 Procurement contacts had seniority inferred from role title
+- 80 Procurement contacts had seniority inferred from role title
 
 **Seniority Inference Summary**
 
 | **Group**   | **Original** | **Inferred** | **Total** |
 | ----------- | ------------ | ------------ | --------- |
 | Finance     | 723          | 137          | 860       |
-| Operations  | 712          | 153          | 865       |
+| Operations  | 714          | 151          | 865       |
 | Facilities  | 187          | 41           | 228       |
-| Procurement | 434          | 81           | 515       |
-| **Total**   | **2,056**    | **412**      | **2,468** |
+| Procurement | 435          | 80           | 515       |
+| **Total**   | **2,059**    | **409**      | **2,468** |
 
 **Point 4 - Contact-Tier Prioritisation:**
 
@@ -151,44 +151,44 @@ Three tiers were defined and a contact_priority column added to the final output
 
 | **Tier**        | **Condition**                                     | **Count** |
 | --------------- | ------------------------------------------------- | --------- |
-| 1 - Gold        | Mobile + Email both present                       | 1,545     |
-| 2 - Email Only  | Email present, no mobile                          | 655       |
-| 3 - Mobile Only | Mobile present, no email                          | 268       |
+| 1 - Gold        | Mobile + Email both present                       | 1,592     |
+| 2 - Email Only  | Email present, no mobile                          | 625       |
+| 3 - Mobile Only | Mobile present, no email                          | 251       |
 | Excluded        | Neither mobile nor email (landline only or blank) | -         |
 
 **Priority by Group**
 
 | **Group**   | **Gold** | **Email Only** | **Mobile Only** |
 | ----------- | -------- | -------------- | --------------- |
-| Operations  | 546      | 222            | 97              |
-| Finance     | 530      | 241            | 89              |
-| Procurement | 329      | 123            | 63              |
-| Facilities  | 140      | 69             | 19              |
+| Operations  | 564      | 212            | 89              |
+| Finance     | 550      | 227            | 83              |
+| Procurement | 336      | 118            | 61              |
+| Facilities  | 142      | 68             | 18              |
 
 **Priority by Seniority**
 
 | **Seniority** | **Gold** | **Email Only** | **Mobile Only** |
 | ------------- | -------- | -------------- | --------------- |
-| C-Level       | 326      | 121            | 58              |
-| Head          | 264      | 99             | 41              |
-| Manager       | 297      | 133            | 51              |
-| Director      | 171      | 61             | 34              |
-| Senior        | 171      | 77             | 23              |
-| Mid           | 252      | 127            | 52              |
-| Junior        | 64       | 37             | 9               |
+| C-Level       | 340      | 110            | 55              |
+| Head          | 266      | 99             | 39              |
+| Manager       | 303      | 128            | 50              |
+| Director      | 174      | 60             | 32              |
+| Senior        | 177      | 72             | 22              |
+| Mid           | 267      | 120            | 44              |
+| Junior        | 65       | 36             | 9               |
 
 **Ranking Logic Within a Group**
 
 When selecting the most senior contact per group per company, the ranking was applied in this order:
 
 - **Seniority rank** - C-Level (6) → Head (5) → Director (4) → Manager (3) → Senior (2) → Mid (1) → Junior (0)
-- **Contact priority was not used as a tiebreaker** - seniority was the sole selection criterion. The most senior contact was selected regardless of whether they were Gold, Email Only or Mobile Only
+- Seniority is the primary selection criterion. When two contacts in the same group have identical seniority, contact priority is used as the tiebreaker — Gold (Mobile + Email) is preferred over Email Only, and Email Only over Mobile Only. This ensures the most reachable contact is always selected when seniority is equal.
 
 **Tie Breaking**
 
 - Maximum of 1 contact per group per company - enforced via deduplication after seniority sort
 - Verified: max contacts per group per company = **1**, min = **1** - no ties in final output
-- If two contacts in the same group had identical seniority, the first record in the sorted dataset was selected - no secondary tiebreaker was applied. This is flagged as a potential refinement - a secondary sort by contact_priority (Gold first) could be added
+- When two contacts share identical seniority within the same group, contact priority (Gold → Email Only → Mobile Only) is applied as the tiebreaker. This resulted in 52 contact swaps from the initial output, increasing Gold contacts from 1,545 to 1,592.
 
 **Group Priority (3-contact cap)**
 
@@ -264,8 +264,8 @@ Even after including all states ex-WA, the final decision-maker count of **2,468
 
 | **#** | **Issue**                                                                                                                                                                                                               | **How Spotted**                             | **What Was Done**                                                                                                | **Fixed or flagged**                                          |
 | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| 1     | **Industry field - inconsistent casing and formatting** - Manufacturing appears as Manufacturing, Manufacturing (trailing space) and manufacturing. Cold Storage appears as Cold Storage, Cold-Storage and cold storage | Checking unique values in industry column   | Created industry_norm column using .str.strip().str.title() to normalize for filtering. Original column retained | Fixed for filtering - flagged as data quality issue at source |
-| 2     | **hq_country - 4 inconsistent variations** - AU, Australia, NZ, New Zealand all present                                                                                                                                 | Checking unique values in hq_country column | Used region_code instead - clean with only AU and NZ                                                             | Flagged - region_code used as replacement                     |
+| 1     | **Industry field - inconsistent casing and formatting** - Manufacturing appears as Manufacturing, Manufacturing (trailing space) and manufacturing. Cold Storage appears as Cold Storage, Cold-Storage and cold storage | Checking unique values in industry column   | Created industry_norm column using .str.strip().str.title() to normalize for filtering. Original column retained | Fixed for filtering AND output — normalised title-case values now shipped in final contact file. Cold-Storage consolidated to Cold Storage giving 7 clean industry values. |
+| 2     | **hq_country - 4 inconsistent variations** - AU, Australia, NZ, New Zealand all present                                                                                                                                 | Checking unique values in hq_country column | Used region_code instead - clean with only AU and NZ                                                             | Fixed for filtering AND output — region_code (AU only) now shipped in final contact file as 'country' column, replacing raw hq_country variants.                     |
 | 3     | **web_domain - 200 blank values**                                                                                                                                                                                       | Null check on all columns                   | No action - web domain was not a filtering criterion                                                             | Flagged                                                       |
 | 4     | **firmable_id - 510 duplicate values**                                                                                                                                                                                  | Duplicate check on key columns              | Expected - firmable_id is a linking key between companies and contacts. No action needed                         | Flagged as expected behavior                                  |
 | 5     | **Company name number suffix** - every company name ends with a number (e.g. Cormane Partners Industries 2824)                                                                                                          | Pattern check on company_name column        | No filtering impact - company_id and firmable_id used as identifiers                                             | Flagged - clarification needed from Brignet                   |
@@ -302,7 +302,7 @@ Even after including all states ex-WA, the final decision-maker count of **2,468
 | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
 | 1     | **NZ companies and contacts**                                                                                                                                                                                                     | NZ has different energy market regulations, retailer partnerships and pricing structures - not relevant to Brignet's outreach                                                                                                                 | Would add contacts but from a completely different market                       |
 | 2     | **WA companies and contacts** - 84 companies and 403 contacts meet all criteria                                                                                                                                                   | Brief explicitly states _"Definitely no WA - our retailer partnerships don't cover WA well."_ Including WA contacts would send reps into a market Brignet cannot service                                                                      | Would add 403 contacts but reps would have no product to sell in that territory |
-| 3     | **Revenue bands under \$10M** - 625 companies and 3,065 contacts with revenue Under \$1M, \$1M-\$5M or \$5M-\$10M meet all other criteria                                                                                         | Below mid-market threshold by all major Australian definitions (ATO, KPMG, BDO). Brief says "skew toward larger businesses" - these companies likely don't have the energy spend volume or budget authority to make the engagement worthwhile | Would significantly inflate contact numbers but dilute list quality             |
+| 3     | **Revenue bands under \$10M** - 625 companies and 3,020 contacts with revenue Under \$1M, \$1M-\$5M or \$5M-\$10M meet all other criteria                                                                                         | Below mid-market threshold by all major Australian definitions (ATO, KPMG, BDO). Brief says "skew toward larger businesses" - these companies likely don't have the energy spend volume or budget authority to make the engagement worthwhile | Would significantly inflate contact numbers but dilute list quality             |
 | 4     | **Non-target industries** - 486 companies in Retail, Real Estate, Media, Hospitality, Agriculture, Healthcare, IT, Education, Financial Services, Transportation, Professional Services meet revenue, employee and state criteria | Brief specifically names industries with high energy spend. These industries either have low energy spend profiles or are not the core target market for Brignet's energy products                                                            | Would add volume but reduce conversion likelihood significantly                 |
 | 5     | **Companies with under 20 employees** - 167 companies and 794 contacts meet all other criteria                                                                                                                                    | Brief says _"we've had bad experiences with companies under 20 staff"; they don't have the volume."_ These companies lack the energy spend scale that makes outreach commercially viable                                                      | Would add 794 contacts but with historically poor conversion rates per brief    |
 | 6     | **Landline-only contacts** - 361 contacts have a landline number but no mobile or email                                                                                                                                           | Brief explicitly deprioritizes landline - _"Last resort is landline but honestly we don't really call landlines anymore."_ Low answer rates and no email fallback makes these contacts operationally inefficient                              | Would add 361 contacts with very low likelihood of successful outreach          |
@@ -351,9 +351,9 @@ The gap of 532 contacts is structural - not fixable without relaxing at least on
 | **Lever**                        | **Contacts Added** | **Trade-off**                         |
 | -------------------------------- | ------------------ | ------------------------------------- |
 | Include WA                       | ~403               | Violates brief - no retailer coverage |
-| Include revenue under \$10M      | ~3,065             | Below mid-market definition           |
+| Include revenue under \$10M      | ~3,020             | Below mid-market definition           |
 | Include non-target industries    | Significant        | Outside energy-spend profile          |
-| Include companies under 20 staff | ~794               | Brief says poor conversion history    |
+| Include companies under 20 staff | ~778               | Brief says poor conversion history    |
 | Include landline only            | ~361               | Brief deprioritizes landline          |
 | Include NZ                       | ~1,294             | Different market entirely             |
 
@@ -363,8 +363,8 @@ The gap of 532 contacts is structural - not fixable without relaxing at least on
 
 Quality would degrade in this order:
 
-- **Revenue band** - dropping to \$5M-\$10M adds volume (625 companies, ~3,065 contacts) but moves firmly into SME territory. Energy spend drops significantly below the threshold where Brignet's product is commercially viable
-- **Employee threshold** - dropping below 20 staff adds 167 companies and ~794 contacts but brief already flagged poor conversion history with small companies
+- **Revenue band** - dropping to \$5M-\$10M adds volume (625 companies, ~3,020 contacts) but moves firmly into SME territory. Energy spend drops significantly below the threshold where Brignet's product is commercially viable
+- **Employee threshold** - dropping below 20 staff adds 167 companies and ~778 contacts but brief already flagged poor conversion history with small companies
 - **WA inclusion** - adds 84 companies and ~403 contacts but Brignet has no retailer partnerships there - reps would generate leads they can't service
 - **Non-target industries** - adding Retail, Hospitality, Agriculture etc. adds 486 companies but these have fundamentally different energy profiles - likely low conversion
 - **NZ inclusion** - adds 266 companies and ~1,294 contacts but entirely different regulatory and retail energy market - not comparable to AU operations
