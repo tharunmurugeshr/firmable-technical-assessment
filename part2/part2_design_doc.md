@@ -71,7 +71,7 @@ A customer who started in February 2025 belongs to Q1 2025.
 
 - **Churned cohort members:** Contribute $0 current MRR. Their absence pulls NRR below 100%.
 - **Upgraded cohort members:** Contribute higher current MRR. Their growth pushes NRR above 100%.
-- **Cohort starting MRR grows in early months: Customers in the same quarter don't all start on day 1 — some start in month 1, others in month 2 or 3. The cohort base accumulates until the quarter closes, so NRR in months 0, 1, and 2 is not meaningful — the denominator is still growing. NRR should only be interpreted from month 3 onwards when the cohort is fully formed and the denominator is stable.
+- **Cohort starting MRR grows in early months:** Customers in the same quarter don't all start on day 1 — some start in month 1, others in month 2 or 3. The cohort base accumulates until the quarter closes, so NRR in months 0, 1, and 2 is not meaningful — the denominator is still growing. NRR should only be interpreted from month 3 onwards when the cohort is fully formed and the denominator is stable.
 - **No expansion from new customers:** NRR measures retention and expansion of existing cohort
   members only. New customers acquired after the cohort window closes are not included.
 
