@@ -372,7 +372,7 @@ USE SCHEMA MART;
 -- -----------------------------------------------------------------------------
 -- MRR_MONTHLY
 -- Subscription-based MRR. One row per active customer per calendar month.
--- Excludes churned (canceled) and upgraded (canceled_upgraded) subscriptions.
+-- -- Excludes churned (canceled) subscriptions. Upgraded subscriptions contribute MRR up to their end date.
 -- Generates one row per month a subscription was active using FLATTEN.
 -- -----------------------------------------------------------------------------
 CREATE OR REPLACE VIEW MART.MRR_MONTHLY AS
@@ -390,11 +390,14 @@ WITH active_subscriptions AS (
     JOIN TABLE(FLATTEN(ARRAY_GENERATE_RANGE(
         0,
         DATEDIFF('MONTH', s.START_DATE,
-            COALESCE(s.END_DATE, CURRENT_DATE())) + 1
+            CASE
+                WHEN s.END_DATE IS NULL THEN DATEADD('MONTH', 1, DATE_TRUNC('MONTH', CURRENT_DATE()))
+                ELSE s.END_DATE
+            END
+        )
     ))) SEQ4
     WHERE s.MONTHLY_AMOUNT > 0
-      AND s.IS_CHURNED  = FALSE
-      AND s.IS_UPGRADED = FALSE
+      AND s.IS_CHURNED = FALSE
 )
 SELECT
     a.MONTH,
@@ -579,7 +582,7 @@ SELECT MONTH, COUNT(DISTINCT CANONICAL_ID) AS customers, SUM(MRR) AS total_mrr
 FROM MART.MRR_MONTHLY
 WHERE MONTH = DATE_TRUNC('MONTH', DATEADD('MONTH', -1, CURRENT_DATE()))
 GROUP BY MONTH;
--- Expected: ~3,224 customers, ~$7,133,000 MRR
+-- Expected: customer count and MRR will vary by month. As of June 2026: ~3,266 customers, ~$7,202,900 MRR for April 2026.
 
 SELECT MONTH, COUNT(DISTINCT CANONICAL_ID) AS churned, SUM(CHURNED_MRR) AS churned_mrr
 FROM MART.CHURN_MONTHLY
