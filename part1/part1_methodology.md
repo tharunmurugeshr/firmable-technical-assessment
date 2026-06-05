@@ -33,7 +33,7 @@ The brief contained several points where rules conflicted or were under-specifie
 | **#** | **Conflict / Ambiguity**                                                                                                                          | **Decision Made**                                                                                   | **Reasoning**                                                                                                                                                                                               |
 | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1     | **"Under 20 staff"** - does this mean exclude <20 (keep 20+) or exclude ≤20 (keep 21+)? 6 companies in the filtered set have exactly 20 employees | Kept 20 and above                                                                                   | "Under 20" means 19 and below qualify, so 20 and above are kept                                                                                                                                             |
-| 2     | **"Mobile is critical" vs "give us email over mobile if only one"** - these two statements appear to contradict each other                        | Include mobile OR email, exclude landline only and neither                                          | Mobile is critical for calling, but email is preferred if only one exists. Both are valid contact methods - neither is excluded. Priority column added: Gold (1,592) → Email Only (625) → Mobile Only (251) |
+| 2     | **"Mobile is critical" vs "give us email over mobile if only one"** - these two statements appear to contradict each other                        | Include mobile OR email, exclude landline only and neither                                          | Mobile is critical for calling, but email is preferred if only one exists. Both are valid contact methods - neither is excluded. Priority column added: Gold (1,591) → Email Only (626) → Mobile Only (251) |
 | 3     | **"Facilities or Procurement"** - brief groups these as one group but they are two different departments                                          | Treated as two separate groups - Finance, Operations, Facilities, Procurement = 4 groups            | When all 4 groups exist in a company, Facilities is dropped (lowest priority) as it is least directly tied to energy spend decisions. Max 3 contacts per company maintained                                 |
 | 4     | **"Mid-market Australian businesses"** - brief never defines what revenue range this means                                                        | Used \$10M+ across 5 revenue bands (\$10M-\$25M, \$25M-\$50M, \$50M-\$100M, \$100M-\$250M, \$250M+) | Majority of Australian sources (ATO, KPMG, BDO) define mid-market from \$10M. Grant Thornton uses \$50M but is the outlier. Started at \$100M+ and expanded down to \$10M+ iteratively to hit contact quota |
 | 5     | **"Companies that have grown recently, like in the last 2 years"** - brief mentions growth but gives no instruction on how to use it              | Flagged for sorting, not filtering                                                                  | 50 companies within the filtered set of 956 were founded 2022 or later. Treated as a sort/prioritization signal rather than a hard filter to avoid reducing the contact pool                                |
@@ -54,10 +54,10 @@ The brief contained several points where rules conflicted or were under-specifie
 | Head of Finance          | 112       |
 | Finance Director         | 92        |
 | Finance Manager          | 86        |
-| Senior Financial Analyst | 79        |
-| Accountant               | 76        |
-| Financial Controller     | 59        |
-| Finance Analyst          | 59        |
+| Senior Financial Analyst | 80        |
+| Accountant               | 73        |
+| Financial Controller     | 58        |
+| Finance Analyst          | 62        |
 | Junior Accountant        | 55        |
 
 **Seniority Hierarchy (top to bottom):** C-Level (242) → Head (112) → Director (92) → Manager (86) → Senior (134) → Mid (139) → Junior (55)
@@ -65,33 +65,33 @@ The brief contained several points where rules conflicted or were under-specifie
 **Edge cases:**
 
 - CFO and Chief Financial Officer - both classified as C-Level Finance. Treated as identical roles with different naming conventions
-- Financial Controller - 55 classified as Senior (original data), 4 as Mid (inferred). Senior is the correct classification for this role
+- Financial Controller - 54 classified as Senior (original data), 4 as Mid (inferred). Senior is the correct classification for this role
 - 137 Finance contacts had seniority inferred from role title
 
 **OPERATIONS GROUP - 865 contacts**
 
 | **Role Title**          | **Count** |
 | ----------------------- | --------- |
-| COO                     | 125       |
-| Chief Operating Officer | 111       |
+| COO                     | 128       |
+| Chief Operating Officer | 114       |
 | Head of Operations      | 102       |
 | Site Manager            | 91        |
 | Operations Manager      | 86        |
-| Operations Director     | 82        |
-| Plant Manager           | 72        |
-| Operations Coordinator  | 69        |
-| Operations Analyst      | 54        |
-| Operations Lead         | 49        |
-| Facilities Coordinator  | 24        |
+| Operations Director     | 85        |
+| Plant Manager           | 77        |
+| Operations Coordinator  | 63        |
+| Operations Analyst      | 55        |
+| Operations Lead         | 51        |
+| Facilities Coordinator  | 13        |
 
-**Seniority Hierarchy (top to bottom):** C-Level (263) → Head (102) → Director (82) → Manager (249) → Senior (47) → Mid (122)
+**Seniority Hierarchy (top to bottom):** C-Level (242) → Head (102) → Director (85) → Manager (254) → Senior (49) → Mid (133)
 
 **Edge cases:**
 
 - COO and Chief Operating Officer - both classified as C-Level Operations. Treated as identical roles with different naming conventions
-- Facilities Coordinator (24 contacts) - appears in Operations group because the role title matched the Operations keyword operations coordinator. Could arguably belong to Facilities - flagged as a potential misclassification
+- Facilities Coordinator (13 contacts) - appears in Operations group because the role title matched the Operations keyword operations coordinator. Could arguably belong to Facilities - flagged as a potential misclassification
 - Site Manager and Plant Manager - classified as Operations as they manage physical operational sites directly relevant to energy spend
-- 151 Operations contacts had seniority inferred from role title
+- 134 Operations contacts had seniority inferred from role title
 
 **FACILITIES GROUP - 228 contacts**
 
@@ -118,8 +118,8 @@ The brief contained several points where rules conflicted or were under-specifie
 | Head of Procurement  | 98        |
 | Procurement Director | 92        |
 | Strategic Buyer      | 90        |
-| Procurement Analyst  | 80        |
-| Buyer                | 78        |
+| Procurement Analyst  | 81        |
+| Buyer                | 77        |
 | Procurement Manager  | 77        |
 
 **Seniority Hierarchy (top to bottom):** Head (98) → Director (92) → Senior (90) → Manager (77) → Mid (158)
@@ -128,7 +128,7 @@ The brief contained several points where rules conflicted or were under-specifie
 
 - No C-Level in Procurement - highest seniority available is Head
 - Strategic Buyer - classified as Senior via inferred logic (strategic keyword). Reasonable given the strategic nature of the role. All 90 confirmed as Senior
-- Buyer - classified as Mid (78). Could be argued as Junior in some organizations but Mid is a safe assumption
+- Buyer - classified as Mid (77). Could be argued as Junior in some organizations but Mid is a safe assumption
 - 80 Procurement contacts had seniority inferred from role title
 
 **Seniority Inference Summary**
@@ -136,10 +136,10 @@ The brief contained several points where rules conflicted or were under-specifie
 | **Group**   | **Original** | **Inferred** | **Total** |
 | ----------- | ------------ | ------------ | --------- |
 | Finance     | 723          | 137          | 860       |
-| Operations  | 714          | 151          | 865       |
+| Operations  | 731          | 134          | 865       |
 | Facilities  | 187          | 41           | 228       |
 | Procurement | 435          | 80           | 515       |
-| **Total**   | **2,059**    | **409**      | **2,468** |
+| **Total**   | **2,076**    | **392**      | **2,468** |
 
 **Point 4 - Contact-Tier Prioritisation:**
 
@@ -151,8 +151,8 @@ Three tiers were defined and a contact_priority column added to the final output
 
 | **Tier**        | **Condition**                                     | **Count** |
 | --------------- | ------------------------------------------------- | --------- |
-| 1 - Gold        | Mobile + Email both present                       | 1,592     |
-| 2 - Email Only  | Email present, no mobile                          | 625       |
+| 1 - Gold        | Mobile + Email both present                       | 1,591     |
+| 2 - Email Only  | Email present, no mobile                          | 626       |
 | 3 - Mobile Only | Mobile present, no email                          | 251       |
 | Excluded        | Neither mobile nor email (landline only or blank) | -         |
 
@@ -160,7 +160,7 @@ Three tiers were defined and a contact_priority column added to the final output
 
 | **Group**   | **Gold** | **Email Only** | **Mobile Only** |
 | ----------- | -------- | -------------- | --------------- |
-| Operations  | 564      | 212            | 89              |
+| Operations  | 563      | 213            | 89              |
 | Finance     | 550      | 227            | 83              |
 | Procurement | 336      | 118            | 61              |
 | Facilities  | 142      | 68             | 18              |
@@ -169,12 +169,12 @@ Three tiers were defined and a contact_priority column added to the final output
 
 | **Seniority** | **Gold** | **Email Only** | **Mobile Only** |
 | ------------- | -------- | -------------- | --------------- |
-| C-Level       | 340      | 110            | 55              |
+| C-Level       | 325      | 109            | 50              |
 | Head          | 266      | 99             | 39              |
-| Manager       | 303      | 128            | 50              |
-| Director      | 174      | 60             | 32              |
-| Senior        | 177      | 72             | 22              |
-| Mid           | 267      | 120            | 44              |
+| Manager       | 305      | 129            | 52              |
+| Director      | 175      | 61             | 33              |
+| Senior        | 179      | 72             | 22              |
+| Mid           | 276      | 120            | 46              |
 | Junior        | 65       | 36             | 9               |
 
 **Ranking Logic Within a Group**
@@ -188,7 +188,7 @@ When selecting the most senior contact per group per company, the ranking was ap
 
 - Maximum of 1 contact per group per company - enforced via deduplication after seniority sort
 - Verified: max contacts per group per company = **1**, min = **1** - no ties in final output
-- When two contacts share identical seniority within the same group, contact priority (Gold → Email Only → Mobile Only) is applied as the tiebreaker. This resulted in 52 contact swaps from the initial output, increasing Gold contacts from 1,545 to 1,592.
+- When two contacts share identical seniority within the same group, contact priority (Gold → Email Only → Mobile Only) is applied as the tiebreaker. This resulted in 52 contact swaps from the initial output, increasing Gold contacts from 1,544 to 1,591.
 
 **Group Priority (3-contact cap)**
 
@@ -301,7 +301,7 @@ Even after including all states ex-WA, the final decision-maker count of **2,468
 | **#** | **What**                                                                                                                                                                                                                          | **Why Not Recommended**                                                                                                                                                                                                                       | **Impact If included**                                                          |
 | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
 | 1     | **NZ companies and contacts**                                                                                                                                                                                                     | NZ has different energy market regulations, retailer partnerships and pricing structures - not relevant to Brignet's outreach                                                                                                                 | Would add contacts but from a completely different market                       |
-| 2     | **WA companies and contacts** - 84 companies and 403 contacts meet all criteria                                                                                                                                                   | Brief explicitly states _"Definitely no WA - our retailer partnerships don't cover WA well."_ Including WA contacts would send reps into a market Brignet cannot service                                                                      | Would add 403 contacts but reps would have no product to sell in that territory |
+| 2     | **WA companies and contacts** - 84 companies and 396 contacts meet all criteria                                                                                                                                                   | Brief explicitly states _"Definitely no WA - our retailer partnerships don't cover WA well."_ Including WA contacts would send reps into a market Brignet cannot service                                                                      | Would add 403 contacts but reps would have no product to sell in that territory |
 | 3     | **Revenue bands under \$10M** - 625 companies and 3,020 contacts with revenue Under \$1M, \$1M-\$5M or \$5M-\$10M meet all other criteria                                                                                         | Below mid-market threshold by all major Australian definitions (ATO, KPMG, BDO). Brief says "skew toward larger businesses" - these companies likely don't have the energy spend volume or budget authority to make the engagement worthwhile | Would significantly inflate contact numbers but dilute list quality             |
 | 4     | **Non-target industries** - 486 companies in Retail, Real Estate, Media, Hospitality, Agriculture, Healthcare, IT, Education, Financial Services, Transportation, Professional Services meet revenue, employee and state criteria | Brief specifically names industries with high energy spend. These industries either have low energy spend profiles or are not the core target market for Brignet's energy products                                                            | Would add volume but reduce conversion likelihood significantly                 |
 | 5     | **Companies with under 20 employees** - 167 companies and 794 contacts meet all other criteria                                                                                                                                    | Brief says _"we've had bad experiences with companies under 20 staff"; they don't have the volume."_ These companies lack the energy spend scale that makes outreach commercially viable                                                      | Would add 794 contacts but with historically poor conversion rates per brief    |
