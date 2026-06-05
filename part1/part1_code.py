@@ -258,7 +258,7 @@ with_group['seniority_source'] = 'Original'
 with_group.loc[with_group['seniority'].isna(), 'seniority_source'] = 'Inferred from role title'
 
 # Infer seniority from role title for blanks
-with_group.loc[with_group['seniority'].isna() & with_group['role_lower'].str.contains('cfo|coo|ceo|chief'), 'seniority'] = 'C-Level'
+with_group.loc[with_group['seniority'].isna() & with_group['role_lower'].str.contains(r'\bcfo\b|\bcoo\b|\bceo\b|chief', regex=True), 'seniority'] = 'C-Level'
 with_group.loc[with_group['seniority'].isna() & with_group['role_lower'].str.contains('head of'), 'seniority'] = 'Head'
 with_group.loc[with_group['seniority'].isna() & with_group['role_lower'].str.contains('director|managing director'), 'seniority'] = 'Director'
 with_group.loc[with_group['seniority'].isna() & with_group['role_lower'].str.contains('manager'), 'seniority'] = 'Manager'
