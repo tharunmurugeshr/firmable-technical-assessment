@@ -17,8 +17,7 @@ behind the subscription cycle, or when GST is included.
 
 - **Upgrades (`canceled_upgraded`):** The old subscription is excluded from MRR entirely.
   The new (higher) subscription is included from its start date. There is no double-counting.
-  In the data: 777 subscriptions have this status and contribute $0 to MRR directly — their
-  replacement subscriptions carry the revenue.
+  In the data: 777 subscriptions have this status and contribute MRR up to their end date — their replacement subscriptions carry the revenue from the upgrade month onwards.
 
 - **Downgrades:** A customer moving from Enterprise Plus ($5,000) to Enterprise ($3,000) keeps
   contributing MRR — just at the lower amount from the new subscription's start date. The
