@@ -23,7 +23,7 @@ GROUP BY MONTH;
 **Result:**
 | MONTH | ACTIVE_CUSTOMERS | TOTAL_MRR |
 |---|---|---|
-| 2026-03-01 | 3,173 | $6,979,000 |
+| 2026-03-01 | 3,262 | $7,122,700 |
 
 **Caveats:** MRR is subscription-based (contracted monthly amount), not invoiced revenue.
 "End of March" maps to the March snapshot — the view holds one row per active customer
@@ -274,7 +274,7 @@ FROM MART.MRR_MONTHLY
 WHERE MONTH = DATE_TRUNC('MONTH', DATEADD('MONTH', -1, CURRENT_DATE()))
 GROUP BY MONTH;
 ```
-Result: **$7,133,000**
+Result: **$7,202,900**
 
 Option B — Invoiced revenue (paid only):
 ```sql
@@ -342,18 +342,19 @@ LIMIT 10;
 **Result:**
 | CANONICAL_ID | COMPANY_NAME | INDUSTRY | COUNTRY | LIFETIME_MRR | ACTIVE_MONTHS |
 |---|---|---|---|---|---|
-| cus_02694 | Cormane Labs Holdings 5980 | Financial Services | NZ | $265,000 | 53 |
-| cus_03627 | Solvexa Software Partners 4959 | Logistics | AU | $265,000 | 53 |
-| cus_00469 | Pellori Studios Partners 2163 | Hospitality | AU | $265,000 | 53 |
-| cus_01188 | Thessalt Platforms Group 4479 | Professional Services | AU | $265,000 | 53 |
-| cus_03638 | Dalmire Systems Holdings 1730 | Manufacturing | AU | $265,000 | 53 |
-| cus_02767 | Prymor Systems 6214 | IT | GB | $265,000 | 53 |
-| cus_00183 | Mardel Studios Group 3417 | Logistics | AU | $265,000 | 53 |
-| cus_01984 | *(stripe_only — no HubSpot record)* | — | — | $265,000 | 53 |
-| cus_03870 | Bralven Platforms Partners 7487 | Logistics | GB | $265,000 | 53 |
-| cus_00057 | Bralven Works Partners 8007 | IT | AU | $265,000 | 53 |
+| cus_03870 | Bralven Platforms Partners 7487 | Logistics | GB | $270,000 | 54 |
+| cus_00469 | Pellori Studios Partners 2163 | Hospitality | AU | $270,000 | 54 |
+| cus_02767 | Prymor Systems 6214 | IT | GB | $270,000 | 54 |
+| cus_00057 | Bralven Works Partners 8007 | IT | AU | $270,000 | 54 |
+| cus_03937 | Kraveth Commerce Partners 5901| *(stripe_only — no HubSpot record)* | — | $270,000 | 54 |
+| cus_02694 | Cormane Labs Holdings 5980 | Financial Services | NZ | $270,000 | 54 |
+| cus_03638 | Dalmire Systems Holdings 1730 | Manufacturing | AU | $270,000 | 54 |
+| cus_01951 | Verdane Works 7000 | *(stripe_only — no HubSpot record)* | — | $270,000 | 54 |
+| cus_01188 | Thessalt Platforms Group 4479 | Professional Services | AU | $270,000 | 54 |
+| cus_00183 | Mardel Studios Group 3417 | Logistics | AU | $270,000 | 54 |
 
-**Caveats:** LTV = sum of all monthly MRR across every active month. All top 10 have
-been active since January 2022 (53 months) at $5,000/month (Enterprise Plus plan).
-`cus_01984` is a stripe_only customer — no HubSpot company record, so company name
-and industry are NULL. This is expected and correctly surfaced.
+
+
+
+
+**Caveats:** LTV = sum of all monthly MRR across every active month. All top 10 have been active since January 2022 (54 months). The $270,000 LTV reflects their subscription amounts across all active months — customers may have been on different plans during this period. `cus_03937` and `cus_01951` are stripe_only customers — no HubSpot company record, so company name and industry are NULL. This is expected and correctly surfaced.
