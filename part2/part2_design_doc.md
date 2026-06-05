@@ -317,3 +317,6 @@ or inappropriate fallbacks — and use the failures to add guardrails and exampl
 Specifically: multi-metric questions ("show me MRR and churn side by side"), year-over-year
 questions ("how does March 2026 compare to March 2025"), and filter combinations
 ("MRR for Enterprise customers in Australia who have been active more than 12 months").
+
+**7. Fix the NRR early-month denominator.**
+Currently NRR in months 0, 1, and 2 of a cohort is not meaningful because the cohort is still accumulating customers and the denominator is still growing. In production I'd add a `MART.REPORTING_CALENDAR` that marks when each cohort quarter is fully closed, and filter `NRR_COHORT` to only surface months where the cohort is complete. This makes NRR comparable across all months without introducing SQL-level errors in the cohort base calculation.
