@@ -183,7 +183,7 @@ the Stripe↔HubSpot identity via `customer_id_map`.
 
 **Response:**
 
-**Answer:** MRR last month (April 2026) was **$7,133,000** across 3,224 active customers.
+**Answer:** MRR last month (April 2026) was **$7,202,900** across 3,266 active customers.
 
 **SQL:**
 ```sql
@@ -341,7 +341,7 @@ from the HubSpot `properties` JSON column during staging. Results are filtered t
 
 **User:** What was total MRR at the end of March 2026?
 
-**Answer:** Total MRR at the end of March 2026 was **$7,052,500** across 3,198 active customers.
+**Answer:** Total MRR at the end of March 2026 was **$7,122,700** across 3,262 active customers.
 
 **SQL:**
 ```sql
@@ -527,7 +527,7 @@ flag) for invoiced revenue filtered to `status = 'paid'`.
 
 **User:** Who are our top 10 customers by lifetime value?
 
-**Answer:** Here are the top 10 customers by total lifetime MRR.
+**Answer:** Here are the top 10 customers by total lifetime MRR. As of June 2026, the top customers each have a lifetime MRR of **$270,000** across **54 active months.**
 
 **SQL:**
 ```sql
